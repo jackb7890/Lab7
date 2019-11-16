@@ -287,21 +287,15 @@ template<class ItemType>
 void BST_312 <ItemType>::insertItem(TreeNode*& t, const ItemType& newItem)
 {
 	if (t == NULL){
-		cout << "reached empty node" << endl;
 		t = new TreeNode;
 		t->data = newItem;
 		t->right = NULL;
 		t->left = NULL;
-		//cout << "newItem: "<< newItem << " t->data: " << t->data<<endl;
 	}
 	else if (newItem >= t->data){
-		//cout << "newItem: "<< newItem << " t->data: " << t->data<<endl;
-		cout << "Going right..."<<endl;
 		insertItem(t->right,newItem);
 	}
 	else{
-		//cout << "newItem: "<< newItem << " t->data: " << t->data<<endl;
-		cout << "Going left..."<<endl;
 		insertItem(t->left,newItem);
 	}
 }
@@ -332,13 +326,10 @@ template<class ItemType>
 void BST_312 <ItemType>::preOrderTraversal(TreeNode* t,vector<ItemType>& result) const
 {
 	if (t != NULL) {
-	//cout<<t->data<<endl;
-	//cout << t->left << endl << t->right << endl;
 	result.push_back(t->data);
 	preOrderTraversal(t->left,result);
 	preOrderTraversal(t->right,result);
 	}
-	//else cout << "END" << endl;
 }
 
 
@@ -346,7 +337,6 @@ template<class ItemType>
 vector<ItemType> BST_312 <ItemType>::preOrderTraversal()
 {
 	vector<ItemType>result;
-	cout<<"Starting PreOrder" << endl << "-------------"<<endl;
 	preOrderTraversal(root,result);
 	return result;
 }
